@@ -1,0 +1,20 @@
+<section ng-controller="search">
+    Enter your city and state to find a medical professional near you.
+    <form ng-hide="statesError" ng-submit="findPhysicians()">
+        <input type="text" ng-model="city" placeholder="City" />
+        <select ng-model="state" ng-options="state for state in states"></select>
+        <input type="submit" value="Search" />
+        <input type="button" value="Clear" ng-click="results = []" />
+    </form>
+    <div class="error" ng-show="statesError">Error retrieving state list - unable to search for physicians ({{statesError}}).</div>
+    <div class="error" ng-repeat="error in errors">{{error}}</div>
+    <div class="loader" ng-show="loading">Loading...</div>
+    <div class="results">
+        <div ng-repeat="result in results" class="result">
+            <span class="name">{{result.business_name}}</span>
+            <span class="phone">Phone: <tel>{{formatPhone(result)}}</tel></span>
+            &bull;
+            <a class="address" ng-href="{{mapLink(result)}}" target="_blank">Find on Google Maps</a>
+        </div>
+    </div>
+</section>

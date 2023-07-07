@@ -1,0 +1,23 @@
+<h2>Results</h1>
+<section>
+    Your Score:
+    <div class="score">{{score}}</div>
+    <section ng-show="score < 5">Minimal Depression</section>
+    <section ng-show="score >= 5 && score < 10">Mild Depression</section>
+    <section ng-show="score >= 10 && score < 15">Moderate Depression</section>
+    <section ng-show="score >= 15 && score < 20">Moderately Severe Depression</section>
+    <section ng-show="score >= 20">Severe Depression</section>
+</section>
+<section class="description" ng-show="checks < 2">
+    Your answers don't indicate a depressive disorder. Hooray!
+</section>
+<section class="description" ng-show="checks >= 2">
+    <div ng-show="checks < 5">
+        Your answers don't indicate a major depressive disorder, but it might still be a good idea to talk to someone.
+    </div>
+    <div ng-show="checks >= 5">
+        Your answers indicate a potential major depressive disorder.
+    </div>
+    <div class="inset" ng-include="'/templates/search.html'"></div>
+</section>
+<section class="inset" ng-include="'/templates/auth.html'"></section>

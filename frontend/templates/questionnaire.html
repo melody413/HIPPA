@@ -1,0 +1,18 @@
+<h2>Question {{questionNumber}}</h2>
+<section ng-show="questionNumber < 10">
+    <section>Over the past two weeks, how often have you been bothered by:</section>
+    <section class="fade-in">{{questions[questionNumber - 1].text}}</section>
+    <section class="fade-in">
+        <div ng-repeat="option in questionOptions track by $index">
+            <button ng-click="answerAndAdvance($index)">{{option}}</button>
+        </div>
+    </section>
+</section>
+<section ng-show="questionNumber == 10">
+    <section>If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?</section>
+    <section class="fade-in">
+         <div ng-repeat="option in finalQuestionOptions track by $index">
+            <button ng-click="answerFinal($index)">{{option}}</button>
+        </div>
+    </section>
+</section>

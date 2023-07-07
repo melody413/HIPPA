@@ -1,0 +1,12 @@
+<section>If you'd like to save your results over time, log in or create an account below.</section>
+<form ng-controller="auth">
+    <div class="loading" ng-show="loading">Loading...</div>
+    <div class="error" ng-repeat="error in errors track by $index">{{error}}</div>
+    <div class="message" ng-repeat="message in messages track by $index">{{message}}</div>
+    <section><input type="text" ng-model="email" placeholder="Email" /></section>
+    <section><input type="password" ng-model="password" placeholder="Password" /></section>
+    <section>
+        <input type="submit" ng-click="signIn()" value="Sign In" />
+        <input type="submit" ng-click="signUp()" value="Create Account" />
+    </section>
+</form>
